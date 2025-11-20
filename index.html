@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Early Constitutional Issues Study</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Early Constitutional Issues</h1>
+      <p class="subtitle">Flashcards and practice quiz</p>
+    </header>
+
+    <nav class="tabs">
+      <button id="flashcardsTab" class="active">Flashcards</button>
+      <button id="quizTab">Quiz</button>
+    </nav>
+
+    <main>
+      <!-- Flashcards view -->
+      <section id="flashcardsView">
+        <div class="topic-select">
+          <label for="topicFilter">Topic:</label>
+          <select id="topicFilter"></select>
+        </div>
+
+        <div class="card">
+          <div class="card-topic" id="cardTopic"></div>
+          <div class="card-question" id="cardQuestion"></div>
+          <div class="card-answer" id="cardAnswer"></div>
+          <div class="card-hint" id="cardHint"></div>
+        </div>
+
+        <div class="controls">
+          <button id="prevCard">Previous</button>
+          <button id="toggleAnswer">Show Answer</button>
+          <button id="nextCard">Next</button>
+        </div>
+
+        <div class="progress">
+          <span id="cardCounter"></span>
+        </div>
+      </section>
+
+      <!-- Quiz view -->
+      <section id="quizView" class="hidden">
+        <div class="quiz-header">
+          <div id="quizProgress"></div>
+          <div id="quizTopic"></div>
+        </div>
+
+        <div class="quiz-question" id="quizQuestion"></div>
+
+        <div class="quiz-options" id="quizOptions"></div>
+
+        <div class="quiz-feedback" id="quizFeedback"></div>
+
+        <div class="quiz-footer">
+          <button id="nextQuestion">Next</button>
+          <div id="quizScore"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
