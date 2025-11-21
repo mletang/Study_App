@@ -10,26 +10,71 @@
   <div class="app">
     <header>
       <h1>Early Constitutional Issues</h1>
-      <p class="subtitle">Flashcards and practice quiz</p>
+      <p class="subtitle">Flashcards and practice quizzes</p>
     </header>
 
-    <nav class="tabs">
-      <button id="flashcardsTab" class="active">Flashcards</button>
-      <button id="quizTab">Quiz</button>
-    </nav>
-
     <main>
+      <!-- Home menu -->
+      <section id="homeView">
+        <h2 class="section-title">Choose what to practice</h2>
+
+        <div class="menu-group">
+          <h3>Flashcards</h3>
+          <button class="menu-btn" data-mode="flash" data-filter-type="all" data-filter-value="ALL">
+            Study all flashcards
+          </button>
+          <button class="menu-btn" data-mode="flash" data-filter-type="section" data-filter-value="SSC1">
+            Study Check #1 flashcards (Washington & Hamilton)
+          </button>
+          <button class="menu-btn" data-mode="flash" data-filter-type="section" data-filter-value="SSC2">
+            Study Check #2 flashcards (Jefferson & Expansion)
+          </button>
+          <button class="menu-btn" data-mode="flash" data-filter-type="section" data-filter-value="SSC3">
+            Study Check #3 flashcards (Tecumseh & War of 1812)
+          </button>
+          <button class="menu-btn" data-mode="flash" data-filter-type="section" data-filter-value="SSC4">
+            Study Check #4 flashcards (Andrew Jackson)
+          </button>
+          <button class="menu-btn" data-mode="flash" data-filter-type="review" data-filter-value="REVIEW">
+            Study marked for review
+          </button>
+        </div>
+
+        <div class="menu-group">
+          <h3>Quizzes</h3>
+          <button class="menu-btn" data-mode="quiz" data-filter-type="all" data-filter-value="ALL">
+            Full quiz (all topics)
+          </button>
+          <button class="menu-btn" data-mode="quiz" data-filter-type="section" data-filter-value="SSC1">
+            Study Check #1 quiz
+          </button>
+          <button class="menu-btn" data-mode="quiz" data-filter-type="section" data-filter-value="SSC2">
+            Study Check #2 quiz
+          </button>
+          <button class="menu-btn" data-mode="quiz" data-filter-type="section" data-filter-value="SSC3">
+            Study Check #3 quiz
+          </button>
+          <button class="menu-btn" data-mode="quiz" data-filter-type="section" data-filter-value="SSC4">
+            Study Check #4 quiz
+          </button>
+        </div>
+      </section>
+
       <!-- Flashcards view -->
-      <section id="flashcardsView">
-        <div class="topic-select">
-          <label for="topicFilter">Topic:</label>
-          <select id="topicFilter"></select>
+      <section id="flashcardsView" class="hidden">
+        <div class="view-header">
+          <button id="backFromFlash" class="small-btn">&larr; Menu</button>
+          <div class="view-info">
+            <div id="flashFilterLabel" class="view-label"></div>
+            <div id="flashCounter" class="view-counter"></div>
+          </div>
         </div>
 
         <div class="card">
           <div class="card-topic" id="cardTopic"></div>
           <div class="card-question" id="cardQuestion"></div>
           <div class="card-answer" id="cardAnswer"></div>
+          <div class="card-context" id="cardContext"></div>
           <div class="card-hint" id="cardHint"></div>
         </div>
 
@@ -39,27 +84,31 @@
           <button id="nextCard">Next</button>
         </div>
 
-        <div class="progress">
-          <span id="cardCounter"></span>
+        <div class="controls secondary">
+          <button id="markReviewBtn">Mark for review</button>
         </div>
       </section>
 
       <!-- Quiz view -->
       <section id="quizView" class="hidden">
-        <div class="quiz-header">
-          <div id="quizProgress"></div>
-          <div id="quizTopic"></div>
+        <div class="view-header">
+          <button id="backFromQuiz" class="small-btn">&larr; Menu</button>
+          <div class="view-info">
+            <div id="quizFilterLabel" class="view-label"></div>
+            <div id="quizProgress" class="view-counter"></div>
+          </div>
         </div>
 
         <div class="quiz-question" id="quizQuestion"></div>
+        <div class="quiz-context" id="quizContext"></div>
 
         <div class="quiz-options" id="quizOptions"></div>
 
         <div class="quiz-feedback" id="quizFeedback"></div>
 
         <div class="quiz-footer">
-          <button id="nextQuestion">Next</button>
           <div id="quizScore"></div>
+          <button id="nextQuestion">Next</button>
         </div>
       </section>
     </main>

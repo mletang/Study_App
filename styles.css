@@ -10,7 +10,7 @@ body {
 }
 
 .app {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 16px;
 }
@@ -22,36 +22,13 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
 }
 
 .subtitle {
   margin: 4px 0 0;
   font-size: 0.9rem;
   color: #555;
-}
-
-.tabs {
-  display: flex;
-  margin: 12px 0;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid #d0d4e4;
-}
-
-.tabs button {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  background: #e4e7f5;
-  cursor: pointer;
-  font-size: 0.95rem;
-}
-
-.tabs button.active {
-  background: #315efb;
-  color: #fff;
-  font-weight: 600;
 }
 
 main {
@@ -65,22 +42,69 @@ main {
   display: none;
 }
 
-/* Flashcards */
+.section-title {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
 
-.topic-select {
+.menu-group {
+  margin-bottom: 18px;
+}
+
+.menu-group h3 {
+  margin: 8px 0;
+  font-size: 1rem;
+}
+
+.menu-btn {
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border: 1px solid #d0d4e4;
+  background: #f5f7ff;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.menu-btn:hover {
+  background: #e4e7fb;
+}
+
+.view-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 8px;
   margin-bottom: 10px;
-  font-size: 0.9rem;
+  gap: 8px;
 }
 
-.topic-select select {
-  flex: 1;
-  padding: 6px 8px;
-  border-radius: 6px;
-  border: 1px solid #c8cce0;
+.small-btn {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #d0d4e4;
+  background: #f5f7ff;
+  cursor: pointer;
+  font-size: 0.85rem;
 }
+
+.view-info {
+  flex: 1;
+  text-align: right;
+}
+
+.view-label {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.view-counter {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+/* Flashcards */
 
 .card {
   background: #f1f4ff;
@@ -102,7 +126,7 @@ main {
 }
 
 .card-answer {
-  font-size: 0.95rem;
+  font-size: 0.96rem;
   background: #fff;
   padding: 10px;
   border-radius: 8px;
@@ -115,16 +139,27 @@ main {
   display: block;
 }
 
-.card-hint {
-  margin-top: 6px;
-  font-size: 0.8rem;
+.card-context {
+  margin-top: 8px;
+  font-size: 0.86rem;
   color: #555;
+}
+
+.card-hint {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: #666;
+  font-style: italic;
 }
 
 .controls {
   display: flex;
   gap: 8px;
   margin-bottom: 6px;
+}
+
+.controls.secondary {
+  margin-top: 4px;
 }
 
 .controls button {
@@ -145,24 +180,17 @@ main {
   transform: scale(0.98);
 }
 
-.progress {
-  font-size: 0.8rem;
-  color: #666;
-}
-
 /* Quiz */
-
-.quiz-header {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.85rem;
-  margin-bottom: 8px;
-  color: #555;
-}
 
 .quiz-question {
   font-size: 1rem;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
+}
+
+.quiz-context {
+  font-size: 0.86rem;
+  color: #555;
+  margin-bottom: 10px;
 }
 
 .quiz-options {
@@ -229,6 +257,6 @@ main {
   }
 
   header h1 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 }
