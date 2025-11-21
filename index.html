@@ -2,68 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Early Constitutional Issues Study</title>
+  <title>SIE Flashcards – Exam Prep</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-
-  <link rel="stylesheet" href="styles.css?v=1" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="app">
     <header>
-      <h1>Early Constitutional Issues</h1>
-      <p class="subtitle">Flashcards and practice quizzes</p>
+      <h1>SIE Flashcards</h1>
+      <p class="subtitle">Chapter-based flashcards with SIE-likely highlights</p>
     </header>
 
     <main>
+      <!-- Home menu -->
       <section id="homeView">
-        <h2 class="section-title">Choose what to practice</h2>
+        <h2 class="section-title">Choose what to study</h2>
 
         <div class="menu-group">
-          <h3>Flashcards</h3>
-          <button class="menu-btn" data-mode="flash" data-filter-type="all" data-filter-value="ALL">
+          <h3>Flashcards by scope</h3>
+          <button class="menu-btn"
+                  data-filter-type="all"
+                  data-filter-value="ALL">
             Study all flashcards
           </button>
-          <button class="menu-btn" data-mode="flash" data-filter-type="section" data-filter-value="SSC1">
-            Study Check #1 flashcards (Washington & Hamilton)
+          <button class="menu-btn"
+                  data-filter-type="sie"
+                  data-filter-value="SIE">
+            Study SIE exam-likely flashcards
           </button>
-          <button class="menu-btn" data-mode="flash" data-filter-type="section" data-filter-value="SSC2">
-            Study Check #2 flashcards (Jefferson & Expansion)
-          </button>
-          <button class="menu-btn" data-mode="flash" data-filter-type="section" data-filter-value="SSC3">
-            Study Check #3 flashcards (Tecumseh & War of 1812)
-          </button>
-          <button class="menu-btn" data-mode="flash" data-filter-type="section" data-filter-value="SSC4">
-            Study Check #4 flashcards (Andrew Jackson)
-          </button>
-          <button class="menu-btn" data-mode="flash" data-filter-type="review" data-filter-value="REVIEW">
-            Study marked for review
+          <button class="menu-btn"
+                  data-filter-type="review"
+                  data-filter-value="REVIEW">
+            Study cards marked for review
           </button>
         </div>
 
         <div class="menu-group">
-          <h3>Quizzes</h3>
-          <button class="menu-btn" data-mode="quiz" data-filter-type="all" data-filter-value="ALL">
-            Full quiz (all topics)
+          <h3>Flashcards by chapter</h3>
+          <button class="menu-btn"
+                  data-filter-type="unit"
+                  data-filter-value="U1">
+            Chapter 1 – Knowledge of Capital Markets
           </button>
-          <button class="menu-btn" data-mode="quiz" data-filter-type="section" data-filter-value="SSC1">
-            Study Check #1 quiz
+          <button class="menu-btn"
+                  data-filter-type="unit"
+                  data-filter-value="U2">
+            Chapter 2 – Understanding Products and Risks
           </button>
-          <button class="menu-btn" data-mode="quiz" data-filter-type="section" data-filter-value="SSC2">
-            Study Check #2 quiz
+          <button class="menu-btn"
+                  data-filter-type="unit"
+                  data-filter-value="U3">
+            Chapter 3 – Trading and Customer Accounts
           </button>
-          <button class="menu-btn" data-mode="quiz" data-filter-type="section" data-filter-value="SSC3">
-            Study Check #3 quiz
-          </button>
-          <button class="menu-btn" data-mode="quiz" data-filter-type="section" data-filter-value="SSC4">
-            Study Check #4 quiz
+          <button class="menu-btn"
+                  data-filter-type="unit"
+                  data-filter-value="U4">
+            Chapter 4 – Overview of Regulatory Framework
           </button>
         </div>
       </section>
 
+      <!-- Flashcards view -->
       <section id="flashcardsView" class="hidden">
         <div class="view-header">
           <button id="backFromFlash" class="small-btn">&larr; Menu</button>
@@ -73,12 +72,21 @@
           </div>
         </div>
 
-        <div class="card">
-          <div class="card-topic" id="cardTopic"></div>
+        <div class="card" id="flashcard">
+          <div class="card-header">
+            <div class="card-topic" id="cardTopic"></div>
+            <div class="card-badges">
+              <span id="sieBadge" class="badge badge-sie hidden">
+                SIE exam likely
+              </span>
+              <span id="reviewBadge" class="badge badge-review hidden">
+                Marked for review
+              </span>
+            </div>
+          </div>
+          <div class="card-subtopic" id="cardSubtopic"></div>
           <div class="card-question" id="cardQuestion"></div>
           <div class="card-answer" id="cardAnswer"></div>
-          <div class="card-context" id="cardContext"></div>
-          <div class="card-hint" id="cardHint"></div>
         </div>
 
         <div class="controls">
@@ -91,31 +99,9 @@
           <button id="markReviewBtn">Mark for review</button>
         </div>
       </section>
-
-      <section id="quizView" class="hidden">
-        <div class="view-header">
-          <button id="backFromQuiz" class="small-btn">&larr; Menu</button>
-          <div class="view-info">
-            <div id="quizFilterLabel" class="view-label"></div>
-            <div id="quizProgress" class="view-counter"></div>
-          </div>
-        </div>
-
-        <div class="quiz-question" id="quizQuestion"></div>
-        <div class="quiz-context" id="quizContext"></div>
-
-        <div class="quiz-options" id="quizOptions"></div>
-
-        <div class="quiz-feedback" id="quizFeedback"></div>
-
-        <div class="quiz-footer">
-          <div id="quizScore"></div>
-          <button id="nextQuestion">Next</button>
-        </div>
-      </section>
     </main>
   </div>
 
-  <script src="app.js?v=1"></script>
+  <script src="app.js"></script>
 </body>
 </html>

@@ -1,325 +1,517 @@
-
-// Early Constitutional Issues study app
-// Single large flashcard deck with filters and quizzes by study check
+// SIE flashcards web app
+// Flashcards only, with SIE-likely highlighting and mark-for-review
 
 const FLASHCARDS = [
+  // -----------------------------
+  // Chapter 1 – Knowledge of Capital Markets
+  // -----------------------------
   {
-    "id": "ssc1_washington_precedents",
-    "section": "SSC1",
-    "topic": "Washington",
-    "question": "What important precedents did George Washington establish as the first president?",
-    "answer": "He created a cabinet of advisers, stepped down after two terms, and set a simple, non-royal style for the presidency.",
-    "hint": "These are unwritten traditions later presidents followed.",
-    "context": "These precedents became part of the unwritten Constitution and shaped how the executive branch operates."
+    id: "c1_markets_primary_secondary",
+    unit: "U1",
+    unitLabel: "Chapter 1: Knowledge of Capital Markets",
+    section: "U1S1",
+    sectionLabel: "Markets and Offerings",
+    topic: "Primary vs secondary markets",
+    sieLikely: true,
+    question: "What is the key difference between the primary and secondary markets?",
+    answer:
+      "In the primary market, issuers sell new securities to investors and receive the proceeds. " +
+      "In the secondary market, investors trade securities with one another and the issuer does not receive money from those trades."
   },
   {
-    "id": "ssc1_unwritten_constitution_definition",
-    "section": "SSC1",
-    "topic": "Unwritten Constitution",
-    "question": "What is meant by the 'unwritten Constitution'?",
-    "answer": "It is the set of traditions and practices, like the cabinet and political parties, that are not in the written Constitution but are part of how the government works.",
-    "hint": "Think customs that act like rules even though they are not written.",
-    "context": "Washington\u2019s actions and later practices helped build this unwritten layer of government."
+    id: "c1_public_vs_private_offering",
+    unit: "U1",
+    unitLabel: "Chapter 1: Knowledge of Capital Markets",
+    section: "U1S1",
+    sectionLabel: "Markets and Offerings",
+    topic: "Public vs private offerings",
+    sieLikely: true,
+    question:
+      "How does a public offering differ from a private placement for corporate securities?",
+    answer:
+      "A public offering is registered with the SEC, uses a prospectus, and is sold to the general public through underwriters. " +
+      "A private placement is exempt from registration, sold to a limited number of sophisticated investors, and uses an offering memorandum instead of a full prospectus."
   },
   {
-    "id": "ssc1_hamilton_four_parts",
-    "section": "SSC1",
-    "topic": "Hamilton",
-    "question": "What were the four main parts of Alexander Hamilton\u2019s economic plan?",
-    "answer": "Pay off national and state war debts, create a national bank, place a tax on whiskey, and support a high protective tariff on imports.",
-    "hint": "Debt, bank, whiskey, tariff.",
-    "context": "Hamilton wanted to build strong national credit, strengthen the federal government, and support American industry."
+    id: "c1_ipo_vs_followon",
+    unit: "U1",
+    unitLabel: "Chapter 1: Knowledge of Capital Markets",
+    section: "U1S1",
+    sectionLabel: "Markets and Offerings",
+    topic: "IPO vs follow-on offering",
+    sieLikely: true,
+    question:
+      "What is the difference between an initial public offering (IPO) and a follow-on offering?",
+    answer:
+      "An IPO is the first time an issuer sells equity securities to the public and lists on an exchange or market. " +
+      "A follow-on offering is any subsequent public sale of new shares by a company that is already publicly traded."
   },
   {
-    "id": "ssc1_whiskey_rebellion_reason",
-    "section": "SSC1",
-    "topic": "Hamilton",
-    "question": "Why did the Whiskey Rebellion occur in western Pennsylvania?",
-    "answer": "Frontier farmers were angry about the federal tax on whiskey, which they often used as money, and refused to pay it.",
-    "hint": "Farmers depended on whiskey to trade.",
-    "context": "Washington sending troops to stop the rebellion showed that the new federal government could and would enforce its laws."
+    id: "c1_primary_secondary_markets_examples",
+    unit: "U1",
+    unitLabel: "Chapter 1: Knowledge of Capital Markets",
+    section: "U1S1",
+    sectionLabel: "Markets and Offerings",
+    topic: "Market examples",
+    sieLikely: false,
+    question:
+      "Give one example of a primary market transaction and one example of a secondary market transaction.",
+    answer:
+      "A corporation issuing new shares to investors in an underwritten offering is a primary market transaction. " +
+      "An investor selling already issued shares to another investor on the NYSE is a secondary market transaction."
   },
   {
-    "id": "ssc1_political_parties_emerge",
-    "section": "SSC1",
-    "topic": "Political Parties",
-    "question": "Why did political parties emerge in the 1790s?",
-    "answer": "Leaders disagreed over Hamilton\u2019s economic plan and the power of the federal government, which led to Federalists and Democratic-Republicans forming to promote their ideas.",
-    "hint": "Disagreements over Hamilton and federal power.",
-    "context": "These rival groups became the first political parties in the United States."
+    id: "c1_broker_dealer_vs_investment_adviser",
+    unit: "U1",
+    unitLabel: "Chapter 1: Knowledge of Capital Markets",
+    section: "U1S2",
+    sectionLabel: "Market Participants and Regulations",
+    topic: "Broker-dealer vs investment adviser",
+    sieLikely: true,
+    question:
+      "How does a broker-dealer differ from an investment adviser in compensation and services?",
+    answer:
+      "Broker-dealers execute securities transactions and are typically paid commissions on trades. " +
+      "Investment advisers provide ongoing securities advice and portfolio management for a fee, usually based on assets under management."
   },
   {
-    "id": "ssc1_merchants_benefit_federalists",
-    "section": "SSC1",
-    "topic": "Federalists",
-    "question": "How would merchants and manufacturers benefit from Federalist economic policies?",
-    "answer": "Federalist policies such as a strong national bank and protective tariffs made American goods more competitive and gave businesses reliable credit.",
-    "hint": "Tariffs and a strong bank help business.",
-    "context": "Hamilton\u2019s Federalist approach mainly favored wealthy merchants, bankers, and urban business interests."
+    id: "c1_institutional_vs_retail_investors",
+    unit: "U1",
+    unitLabel: "Chapter 1: Knowledge of Capital Markets",
+    section: "U1S2",
+    sectionLabel: "Market Participants and Regulations",
+    topic: "Institutional vs retail investors",
+    sieLikely: false,
+    question:
+      "What is the main distinction between institutional and retail investors?",
+    answer:
+      "Institutional investors are large organizations such as mutual funds, pension funds, or insurance companies that invest pooled assets. " +
+      "Retail investors are individual investors who buy and sell securities for their own personal accounts."
   },
   {
-    "id": "ssc1_washington_foreign_policy",
-    "section": "SSC1",
-    "topic": "Foreign Policy",
-    "question": "What foreign policy did Washington support at the end of his presidency?",
-    "answer": "He supported neutrality, urging the United States to avoid permanent alliances and stay out of European wars.",
-    "hint": "He did not want the young nation dragged into foreign conflicts.",
-    "context": "Washington\u2019s Farewell Address warned against entangling alliances and guided U.S. foreign policy for many years."
+    id: "c1_sros",
+    unit: "U1",
+    unitLabel: "Chapter 1: Knowledge of Capital Markets",
+    section: "U1S2",
+    sectionLabel: "Market Participants and Regulations",
+    topic: "Self-regulatory organizations (SROs)",
+    sieLikely: true,
+    question: "What is an SRO and which SROs are most relevant to the SIE exam?",
+    answer:
+      "A self-regulatory organization creates and enforces rules for member firms under SEC oversight. " +
+      "The main SROs tested on the SIE are FINRA, the Municipal Securities Rulemaking Board (MSRB), and the exchanges such as the NYSE."
   },
   {
-    "id": "ssc2_marbury_decision",
-    "section": "SSC2",
-    "topic": "Marbury v. Madison",
-    "question": "What was the decision in Marbury v. Madison and how did it affect federal power?",
-    "answer": "The Supreme Court claimed the power of judicial review, allowing it to declare laws unconstitutional, which strengthened the federal judiciary.",
-    "hint": "Think 'judicial review'.",
-    "context": "This case made the Supreme Court an equal branch that can check Congress and the president."
+    id: "c1_business_cycle_interest_rates",
+    unit: "U1",
+    unitLabel: "Chapter 1: Knowledge of Capital Markets",
+    section: "U1S2",
+    sectionLabel: "Market Participants and Regulations",
+    topic: "Business cycles and interest rates",
+    sieLikely: false,
+    question:
+      "How do interest rates typically behave during an economic expansion compared with a recession?",
+    answer:
+      "During an economic expansion, demand for credit increases and interest rates tend to rise. " +
+      "During a recession, central banks often lower interest rates to stimulate borrowing and spending."
+  },
+
+  // -----------------------------
+  // Chapter 2 – Understanding Products and Their Risks
+  // -----------------------------
+  {
+    id: "c2_common_vs_preferred",
+    unit: "U2",
+    unitLabel: "Chapter 2: Understanding Products and Their Risks",
+    section: "U2S1",
+    sectionLabel: "Equity and Debt Securities",
+    topic: "Common vs preferred stock",
+    sieLikely: true,
+    question:
+      "What are two key differences between common stock and preferred stock for investors?",
+    answer:
+      "Common stock typically offers voting rights and greater potential for capital appreciation, but dividends are not guaranteed. " +
+      "Preferred stock usually has no voting rights but pays a stated dividend rate and has priority over common stock for dividends and liquidation."
   },
   {
-    "id": "ssc2_why_buy_louisiana",
-    "section": "SSC2",
-    "topic": "Louisiana Purchase",
-    "question": "Why did the United States want to purchase the Louisiana Territory?",
-    "answer": "The U.S. wanted control of the Mississippi River and the port of New Orleans for trade and to provide land for westward expansion.",
-    "hint": "Think river, port, and land.",
-    "context": "The purchase doubled the size of the country and opened the West to settlement."
+    id: "c2_debt_security_features",
+    unit: "U2",
+    unitLabel: "Chapter 2: Understanding Products and Their Risks",
+    section: "U2S1",
+    sectionLabel: "Equity and Debt Securities",
+    topic: "Bond features",
+    sieLikely: true,
+    question:
+      "Define par value, coupon rate, and yield to maturity for a bond.",
+    answer:
+      "Par value is the face amount repaid at maturity, typically 1,000 dollars per bond. " +
+      "The coupon rate is the stated annual interest rate applied to par value to determine interest payments. " +
+      "Yield to maturity is the total return expected if the bond is held until maturity, reflecting both coupon income and any gain or loss compared with par."
   },
   {
-    "id": "ssc2_napoleon_sell_reason",
-    "section": "SSC2",
-    "topic": "Louisiana Purchase",
-    "question": "Why did Napoleon decide to sell the Louisiana Territory to the United States?",
-    "answer": "France needed money for wars in Europe and had trouble controlling its American lands after a slave revolt in Haiti.",
-    "hint": "War costs and lost control in the Caribbean.",
-    "context": "Napoleon\u2019s decision gave the United States a huge amount of land at a low price."
+    id: "c2_premium_discount_par",
+    unit: "U2",
+    unitLabel: "Chapter 2: Understanding Products and Their Risks",
+    section: "U2S1",
+    sectionLabel: "Equity and Debt Securities",
+    topic: "Premium, discount, and par",
+    sieLikely: true,
+    question:
+      "When does a bond trade at a premium, a discount, or at par relative to its coupon rate and current yields?",
+    answer:
+      "A bond trades at a premium when its coupon rate is higher than current market yields, at a discount when its coupon rate is lower than current yields, and at par when the coupon rate equals current yields."
   },
   {
-    "id": "ssc2_jefferson_constitution_problem",
-    "section": "SSC2",
-    "topic": "Jefferson",
-    "question": "What constitutional problem did Jefferson face with the Louisiana Purchase and how did he solve it?",
-    "answer": "The Constitution did not clearly say the president could buy land, but Jefferson used a treaty with France to approve the purchase anyway.",
-    "hint": "He used the treaty power to justify it.",
-    "context": "Jefferson had to bend his strict view of the Constitution to secure the deal."
+    id: "c2_zero_coupon_bonds",
+    unit: "U2",
+    unitLabel: "Chapter 2: Understanding Products and Their Risks",
+    section: "U2S1",
+    sectionLabel: "Equity and Debt Securities",
+    topic: "Zero-coupon bonds",
+    sieLikely: false,
+    question:
+      "How do zero-coupon bonds pay investors and what type of risk can be greater for them?",
+    answer:
+      "Zero-coupon bonds are issued at a deep discount and pay no periodic interest; the investor receives a single payment at maturity equal to par value. " +
+      "Because they make no interim payments, zero-coupon bonds can be more sensitive to interest rate changes, increasing interest rate risk."
   },
   {
-    "id": "ssc2_effect_louisiana",
-    "section": "SSC2",
-    "topic": "Louisiana Purchase",
-    "question": "What effect did the Louisiana Purchase have on the population of the United States?",
-    "answer": "It encouraged people to move west from the crowded Atlantic coast into the Mississippi Valley and beyond.",
-    "hint": "Look at the population maps for 1790 and 1820.",
-    "context": "Westward movement increased pressure on Native American lands and led to new states being created."
+    id: "c2_mutual_fund_nav_forward_pricing",
+    unit: "U2",
+    unitLabel: "Chapter 2: Understanding Products and Their Risks",
+    section: "U2S2",
+    sectionLabel: "Pooled Investments and Options",
+    topic: "Open-end mutual funds and NAV",
+    sieLikely: true,
+    question:
+      "How are purchase and redemption prices for open-end mutual fund shares determined?",
+    answer:
+      "Open-end mutual fund transactions are executed at net asset value (NAV) per share using forward pricing, which means orders are filled at the next NAV calculated after the order is received."
   },
   {
-    "id": "ssc2_lewis_clark_reason",
-    "section": "SSC2",
-    "topic": "Lewis and Clark",
-    "question": "Why did Lewis and Clark lead an expedition into the Louisiana Territory and who helped them?",
-    "answer": "They were sent to map the land, study plants and animals, and find a route to the Pacific; Sacagawea and other Native Americans helped guide and translate.",
-    "hint": "Exploration and mapping of new territory.",
-    "context": "Their journey increased knowledge of the West and strengthened U.S. claims there."
+    id: "c2_closed_end_funds",
+    unit: "U2",
+    unitLabel: "Chapter 2: Understanding Products and Their Risks",
+    section: "U2S2",
+    sectionLabel: "Pooled Investments and Options",
+    topic: "Closed-end funds",
+    sieLikely: false,
+    question:
+      "How do closed-end funds differ from open-end mutual funds in trading?",
+    answer:
+      "Closed-end fund shares are issued in a one-time offering, then trade on an exchange like stocks at market prices that can be above (premium) or below (discount) their NAV. " +
+      "Open-end mutual funds continuously issue and redeem shares directly with the fund at NAV."
   },
   {
-    "id": "ssc2_embargo_act",
-    "section": "SSC2",
-    "topic": "Embargo Act",
-    "question": "What was Jefferson\u2019s Embargo Act of 1807 and why did he support it?",
-    "answer": "It stopped American ships from trading with foreign nations to avoid war and punish Britain and France for attacking U.S. ships.",
-    "hint": "Trade was cut off on purpose.",
-    "context": "Instead of protecting the United States, the embargo badly hurt American merchants and sailors."
+    id: "c2_etf_vs_mutual_fund",
+    unit: "U2",
+    unitLabel: "Chapter 2: Understanding Products and Their Risks",
+    section: "U2S2",
+    sectionLabel: "Pooled Investments and Options",
+    topic: "ETFs compared with mutual funds",
+    sieLikely: false,
+    question:
+      "What are two ways exchange-traded funds (ETFs) commonly differ from open-end mutual funds?",
+    answer:
+      "ETFs trade throughout the day on exchanges at market prices, while mutual funds trade once per day at NAV. " +
+      "ETFs often have lower expense ratios and are generally more tax efficient than actively managed mutual funds."
   },
   {
-    "id": "ssc2_embargo_fail",
-    "section": "SSC2",
-    "topic": "Embargo Act",
-    "question": "Why did the Embargo Act fail and what replaced it?",
-    "answer": "The embargo damaged the American economy more than Britain or France, so it was repealed and replaced with a weaker law that only limited trade with certain nations.",
-    "hint": "The punishment boomeranged back on the U.S.",
-    "context": "The failure showed how difficult it was to stay neutral while protecting American shipping."
+    id: "c2_call_vs_put",
+    unit: "U2",
+    unitLabel: "Chapter 2: Understanding Products and Their Risks",
+    section: "U2S2",
+    sectionLabel: "Pooled Investments and Options",
+    topic: "Basic call and put options",
+    sieLikely: true,
+    question:
+      "What rights do call and put option buyers receive?",
+    answer:
+      "The buyer of a call option has the right, but not the obligation, to buy the underlying security at the strike price before or at expiration. " +
+      "The buyer of a put option has the right, but not the obligation, to sell the underlying security at the strike price before or at expiration."
   },
   {
-    "id": "ssc3_tecumseh_goal",
-    "section": "SSC3",
-    "topic": "Tecumseh",
-    "question": "What was Tecumseh\u2019s main goal on the western frontier?",
-    "answer": "He wanted Native American tribes to unite and resist further land loss to American settlers.",
-    "hint": "He believed unity was the only way to protect their land.",
-    "context": "Tecumseh argued that tribal lands were the common property of all Native peoples and could not be sold by a few chiefs."
+    id: "c2_option_in_out_at_the_money",
+    unit: "U2",
+    unitLabel: "Chapter 2: Understanding Products and Their Risks",
+    section: "U2S2",
+    sectionLabel: "Pooled Investments and Options",
+    topic: "In-the-money, at-the-money, out-of-the-money",
+    sieLikely: true,
+    question:
+      "For a call option, when is the contract in the money, at the money, or out of the money?",
+    answer:
+      "A call option is in the money when the underlying market price is above the strike price, at the money when the market price equals the strike price, and out of the money when the market price is below the strike price."
   },
   {
-    "id": "ssc3_tecumseh_treaty_meaningless",
-    "section": "SSC3",
-    "topic": "Tecumseh",
-    "question": "Why did Tecumseh call the Treaty of Fort Wayne meaningless?",
-    "answer": "He said that land belonged to all Native American tribes together, so a few chiefs had no right to sell millions of acres without everyone\u2019s consent.",
-    "hint": "He rejected the idea that individual tribes could sell shared land.",
-    "context": "His refusal to accept the treaty increased tensions between his followers and U.S. settlers."
+    id: "c2_systematic_vs_nonsystematic",
+    unit: "U2",
+    unitLabel: "Chapter 2: Understanding Products and Their Risks",
+    section: "U2S3",
+    sectionLabel: "Investment Risk Concepts",
+    topic: "Systematic vs nonsystematic risk",
+    sieLikely: true,
+    question:
+      "How do systematic and nonsystematic risk differ, and which type can be reduced through diversification?",
+    answer:
+      "Systematic risk affects the entire market or economy and cannot be eliminated by diversification. " +
+      "Nonsystematic risk is specific to a company or industry and can be reduced or largely eliminated through diversification."
   },
   {
-    "id": "ssc3_battle_tippecanoe_effect",
-    "section": "SSC3",
-    "topic": "Tecumseh",
-    "question": "What happened at the Battle of Tippecanoe and how did it affect Tecumseh\u2019s movement?",
-    "answer": "While Tecumseh was away, U.S. troops attacked and defeated his followers at Tippecanoe, which badly weakened his confederation.",
-    "hint": "His village was attacked when he was gone.",
-    "context": "The defeat was a major setback but also increased American anger at Britain for arming Native Americans."
+    id: "c2_capital_risk_inflation_risk",
+    unit: "U2",
+    unitLabel: "Chapter 2: Understanding Products and Their Risks",
+    section: "U2S3",
+    sectionLabel: "Investment Risk Concepts",
+    topic: "Capital and inflation risk",
+    sieLikely: false,
+    question:
+      "What is capital risk and what is inflation (purchasing power) risk?",
+    answer:
+      "Capital risk is the risk of losing some or all of the original investment. " +
+      "Inflation risk, also called purchasing power risk, is the risk that rising prices will erode the real value of investment returns."
+  },
+
+  // -----------------------------
+  // Chapter 3 – Trading and Customer Accounts
+  // -----------------------------
+  {
+    id: "c3_market_vs_limit_orders",
+    unit: "U3",
+    unitLabel: "Chapter 3: Trading and Customer Accounts",
+    section: "U3S1",
+    sectionLabel: "Orders, Settlement, and Margin",
+    topic: "Market vs limit orders",
+    sieLikely: true,
+    question:
+      "What is the key difference between a market order and a limit order when placing a stock trade?",
+    answer:
+      "A market order is executed immediately at the best available price with priority on speed, while a limit order is executed only at a specified price or better, so execution is not guaranteed."
   },
   {
-    "id": "ssc3_problems_western_territory",
-    "section": "SSC3",
-    "topic": "War of 1812",
-    "question": "What problem did the United States face in the western territory before the War of 1812?",
-    "answer": "American settlers were pushing onto Native American lands and facing attacks from groups who were supplied with British weapons.",
-    "hint": "Think land conflict and British support.",
-    "context": "These frontier clashes helped push the United States toward war with Britain."
+    id: "c3_stop_vs_stop_limit_orders",
+    unit: "U3",
+    unitLabel: "Chapter 3: Trading and Customer Accounts",
+    section: "U3S1",
+    sectionLabel: "Orders, Settlement, and Margin",
+    topic: "Stop vs stop-limit orders",
+    sieLikely: true,
+    question:
+      "How does a stop order differ from a stop-limit order?",
+    answer:
+      "A stop order becomes a market order once the stop price is reached, so it is executed at the next available price. " +
+      "A stop-limit order becomes a limit order once the stop price is triggered and will only be executed at the limit price or better."
   },
   {
-    "id": "ssc3_why_war_hawks_wanted_war",
-    "section": "SSC3",
-    "topic": "War Hawks",
-    "question": "Who were the War Hawks and why did they want war with Britain in 1812?",
-    "answer": "They were members of Congress from the South and West who wanted to defend American honor, stop British attacks on ships, and possibly gain Canada and Florida.",
-    "hint": "Young nationalists who were eager for land and respect.",
-    "context": "Leaders like Henry Clay believed war would punish Britain and allow U.S. expansion."
+    id: "c3_regular_way_settlement",
+    unit: "U3",
+    unitLabel: "Chapter 3: Trading and Customer Accounts",
+    section: "U3S1",
+    sectionLabel: "Orders, Settlement, and Margin",
+    topic: "Regular-way settlement",
+    sieLikely: true,
+    question:
+      "What is the standard regular-way settlement cycle for most corporate securities?",
+    answer:
+      "For most corporate stocks and bonds, regular-way settlement occurs two business days after the trade date, known as T+2."
   },
   {
-    "id": "ssc3_us_unready_for_war",
-    "section": "SSC3",
-    "topic": "War of 1812",
-    "question": "Why was the United States unready for war in 1812?",
-    "answer": "The army was small and poorly trained, the navy had few ships, and the government lacked money and strong leadership for a long conflict.",
-    "hint": "Think weak forces and limited funds.",
-    "context": "Despite these weaknesses, Madison and Congress still declared war on Britain."
+    id: "c3_margin_account_long",
+    unit: "U3",
+    unitLabel: "Chapter 3: Trading and Customer Accounts",
+    section: "U3S1",
+    sectionLabel: "Orders, Settlement, and Margin",
+    topic: "Long margin account basics",
+    sieLikely: true,
+    question:
+      "In a long margin account, what does it mean to buy on margin and what key risk does it create?",
+    answer:
+      "Buying on margin means borrowing part of the purchase price of securities from the broker-dealer and using the securities as collateral. " +
+      "This leverage can amplify gains but also magnifies losses and can lead to margin calls if account equity falls below required levels."
   },
   {
-    "id": "ssc3_treaty_ghent_effect",
-    "section": "SSC3",
-    "topic": "War of 1812",
-    "question": "What did the Treaty of Ghent do at the end of the War of 1812?",
-    "answer": "It ended the fighting and restored prewar boundaries, but did not clearly settle issues like impressment.",
-    "hint": "It was basically a return to how things were before the war.",
-    "context": "Even without major territorial changes, many Americans felt the war proved the nation could defend itself."
+    id: "c3_cash_vs_margin_account",
+    unit: "U3",
+    unitLabel: "Chapter 3: Trading and Customer Accounts",
+    section: "U3S1",
+    sectionLabel: "Orders, Settlement, and Margin",
+    topic: "Cash vs margin accounts",
+    sieLikely: false,
+    question:
+      "What is the basic difference between a cash account and a margin account for customers?",
+    answer:
+      "In a cash account, customers must pay the full purchase price of securities by settlement date. " +
+      "In a margin account, customers can borrow part of the purchase price from the firm, subject to Regulation T and firm margin requirements."
   },
   {
-    "id": "ssc3_effects_war_1812",
-    "section": "SSC3",
-    "topic": "War of 1812",
-    "question": "What were two important effects of the War of 1812 on the United States?",
-    "answer": "It increased national pride and made Andrew Jackson a hero, and it encouraged American manufacturing because trade with Britain had been cut off.",
-    "hint": "Think pride and factories.",
-    "context": "These effects helped start the Era of Good Feelings and a stronger sense of American identity."
+    id: "c3_customer_profile_suitability",
+    unit: "U3",
+    unitLabel: "Chapter 3: Trading and Customer Accounts",
+    section: "U3S2",
+    sectionLabel: "Customer Accounts and Suitability",
+    topic: "Customer profile and suitability",
+    sieLikely: true,
+    question:
+      "What key elements of a customer’s profile must a registered representative consider to make a suitable recommendation?",
+    answer:
+      "Representatives must consider the customer’s investment objectives, time horizon, risk tolerance, financial situation and needs, tax status, investment experience, and any other relevant information in the customer’s investment profile."
   },
   {
-    "id": "ssc4_jacksonian_democracy",
-    "section": "SSC4",
-    "topic": "Jacksonian Democracy",
-    "question": "What is meant by 'Jacksonian Democracy'?",
-    "answer": "It was the idea that government should represent the common man and expand political participation for white male voters.",
-    "hint": "He said he spoke for ordinary people, not just the wealthy.",
-    "context": "During Jackson\u2019s presidency, more white men were allowed to vote because property requirements were reduced in many states."
+    id: "c3_suitability_rule",
+    unit: "U3",
+    unitLabel: "Chapter 3: Trading and Customer Accounts",
+    section: "U3S2",
+    sectionLabel: "Customer Accounts and Suitability",
+    topic: "FINRA suitability rule",
+    sieLikely: true,
+    question:
+      "What does FINRA’s suitability rule require when a recommendation is made?",
+    answer:
+      "The suitability rule requires that the firm or registered representative have a reasonable basis to believe a recommendation is suitable for the customer based on the customer’s investment profile and the characteristics and risks of the recommended product or strategy."
   },
   {
-    "id": "ssc4_spoils_system",
-    "section": "SSC4",
-    "topic": "Spoils System",
-    "question": "What was the spoils system under Andrew Jackson?",
-    "answer": "Jackson rewarded his supporters with government jobs, often firing existing officials to replace them with loyal friends.",
-    "hint": "To the victor go the spoils.",
-    "context": "Critics said this practice led to unqualified people working in important positions."
+    id: "c3_account_registration_types",
+    unit: "U3",
+    unitLabel: "Chapter 3: Trading and Customer Accounts",
+    section: "U3S2",
+    sectionLabel: "Customer Accounts and Suitability",
+    topic: "Types of account registrations",
+    sieLikely: false,
+    question:
+      "Name three common types of account registrations and a key feature of each.",
+    answer:
+      "Individual accounts have one owner who controls the assets. " +
+      "Joint accounts have two or more owners; joint tenants with rights of survivorship pass assets to the surviving owner, while tenants in common do not. " +
+      "Custodial accounts such as UGMA or UTMA are opened for a minor with an adult custodian managing the assets."
+  },
+
+  // -----------------------------
+  // Chapter 4 – Overview of the Regulatory Framework
+  // -----------------------------
+  {
+    id: "c4_sec_finra_msrp_roles",
+    unit: "U4",
+    unitLabel: "Chapter 4: Overview of the Regulatory Framework",
+    section: "U4S1",
+    sectionLabel: "Regulators and Registration",
+    topic: "SEC, FINRA, and MSRB roles",
+    sieLikely: true,
+    question:
+      "Briefly describe the roles of the SEC, FINRA, and the MSRB in the securities industry.",
+    answer:
+      "The SEC is the federal regulator that oversees U.S. securities markets and SROs. " +
+      "FINRA is a self-regulatory organization that writes and enforces rules for broker-dealers and registered representatives. " +
+      "The MSRB writes rules for municipal securities dealers and advisers; those rules are enforced by the SEC and FINRA."
   },
   {
-    "id": "ssc4_kitchen_cabinet",
-    "section": "SSC4",
-    "topic": "Kitchen Cabinet",
-    "question": "What was Jackson\u2019s 'Kitchen Cabinet'?",
-    "answer": "It was an informal group of advisers and friends who met with him privately and influenced decisions more than the official cabinet.",
-    "hint": "Unofficial advisers meeting outside formal rooms.",
-    "context": "This practice worried critics who felt Jackson ignored normal checks and balances."
+    id: "c4_sie_and_topoff",
+    unit: "U4",
+    unitLabel: "Chapter 4: Overview of the Regulatory Framework",
+    section: "U4S1",
+    sectionLabel: "Regulators and Registration",
+    topic: "SIE exam and representative registration",
+    sieLikely: true,
+    question:
+      "What does the SIE exam qualify an individual to do and what else is required to become a registered representative?",
+    answer:
+      "The SIE exam demonstrates basic industry knowledge and can be taken without firm sponsorship, but it does not by itself permit securities business. " +
+      "To become a registered representative, a person must be associated with a member firm and pass an appropriate top-off licensing exam, such as the Series 6 or Series 7."
   },
   {
-    "id": "ssc4_bank_veto",
-    "section": "SSC4",
-    "topic": "Bank War",
-    "question": "Why did Jackson veto the bill to renew the charter of the Bank of the United States?",
-    "answer": "He believed the bank was too powerful, favored the rich, and threatened democracy.",
-    "hint": "He saw it as a tool of the wealthy.",
-    "context": "His veto led to the Bank War and the rise of state banks that sometimes made risky loans."
+    id: "c4_form_ust_and_crd",
+    unit: "U4",
+    unitLabel: "Chapter 4: Overview of the Regulatory Framework",
+    section: "U4S1",
+    sectionLabel: "Regulators and Registration",
+    topic: "Form U4 and CRD",
+    sieLikely: false,
+    question:
+      "What is Form U4 and what is the Central Registration Depository (CRD)?",
+    answer:
+      "Form U4 is the uniform application for securities industry registration or transfer; it is filed when an individual registers with a member firm and SROs. " +
+      "The Central Registration Depository (CRD) is the FINRA-maintained database that contains registration and disciplinary information about registered persons and firms."
   },
   {
-    "id": "ssc4_tariff_abominations",
-    "section": "SSC4",
-    "topic": "Tariff and Nullification",
-    "question": "What was the 'Tariff of Abominations' and how did South Carolina react to it?",
-    "answer": "It was a very high tariff on imported goods that helped northern manufacturers but hurt southern planters; South Carolina called it unconstitutional and threatened to nullify it and leave the Union.",
-    "hint": "Southern leaders talked about cancelling a federal law.",
-    "context": "The nullification crisis tested whether a state could reject a national law, and Jackson responded firmly to preserve the Union."
+    id: "c4_insider_trading_basics",
+    unit: "U4",
+    unitLabel: "Chapter 4: Overview of the Regulatory Framework",
+    section: "U4S2",
+    sectionLabel: "Business Conduct and Key Rules",
+    topic: "Insider trading basics",
+    sieLikely: true,
+    question:
+      "What is insider trading and who can be liable in an insider trading case?",
+    answer:
+      "Insider trading is the illegal use of material nonpublic information to trade a security or to help others trade. " +
+      "Both the tipper who improperly discloses the information and the tippee who knows or should know the information is material and nonpublic can be held liable."
   },
   {
-    "id": "ssc4_indian_removal_act",
-    "section": "SSC4",
-    "topic": "Indian Removal",
-    "question": "What did the Indian Removal Act of 1830 do?",
-    "answer": "It authorized the government to move Native American nations east of the Mississippi River to lands west of the river.",
-    "hint": "Think forced movement to new territory.",
-    "context": "The policy especially targeted the Cherokee and other southeastern tribes who had lived on their lands for generations."
+    id: "c4_misappropriation_theory",
+    unit: "U4",
+    unitLabel: "Chapter 4: Overview of the Regulatory Framework",
+    section: "U4S2",
+    sectionLabel: "Business Conduct and Key Rules",
+    topic: "Misappropriation theory",
+    sieLikely: false,
+    question:
+      "Under the misappropriation theory, when can a person who is not a corporate insider be liable for insider trading?",
+    answer:
+      "A person can be liable under the misappropriation theory if they steal or misuse material nonpublic information in breach of a duty of trust or confidence and then trade or cause trades to be made based on that information."
   },
   {
-    "id": "ssc4_worcester_georgia",
-    "section": "SSC4",
-    "topic": "Worcester v. Georgia",
-    "question": "What did the Supreme Court decide in Worcester v. Georgia and how did Jackson respond?",
-    "answer": "The Court said Georgia\u2019s laws had no force in Cherokee territory, but Jackson refused to enforce the ruling.",
-    "hint": "The Court defended Cherokee rights but the president ignored it.",
-    "context": "Jackson\u2019s refusal weakened Native American protections and raised concerns about respect for the Supreme Court."
+    id: "c4_aml_and_cip",
+    unit: "U4",
+    unitLabel: "Chapter 4: Overview of the Regulatory Framework",
+    section: "U4S2",
+    sectionLabel: "Business Conduct and Key Rules",
+    topic: "Anti-money-laundering and CIP",
+    sieLikely: true,
+    question:
+      "What is the purpose of a broker-dealer’s Customer Identification Program (CIP) under anti-money-laundering rules?",
+    answer:
+      "The CIP requires firms to collect and verify specific identifying information, such as name, date of birth, address, and taxpayer identification number, before opening an account, helping to prevent money laundering and terrorist financing."
   },
   {
-    "id": "ssc4_trail_of_tears",
-    "section": "SSC4",
-    "topic": "Trail of Tears",
-    "question": "What was the Trail of Tears?",
-    "answer": "It was the forced march of the Cherokee from their homes in Georgia to Indian Territory, during which thousands died from hunger, disease, and exhaustion.",
-    "hint": "It was a deadly journey west.",
-    "context": "The Trail of Tears is one of the most tragic results of Jackson\u2019s Indian Removal policies."
+    id: "c4_sar_reporting",
+    unit: "U4",
+    unitLabel: "Chapter 4: Overview of the Regulatory Framework",
+    section: "U4S2",
+    sectionLabel: "Business Conduct and Key Rules",
+    topic: "Suspicious Activity Reports (SARs)",
+    sieLikely: true,
+    question:
+      "When must a broker-dealer file a Suspicious Activity Report (SAR)?",
+    answer:
+      "A broker-dealer must file a SAR with FinCEN within 30 calendar days of detecting suspicious activity involving at least 5,000 dollars where the firm knows, suspects, or has reason to suspect that the funds are derived from illegal activity or that the transaction is designed to evade reporting requirements."
   },
   {
-    "id": "ssc4_king_andrew_cartoon",
-    "section": "SSC4",
-    "topic": "Political Cartoon",
-    "question": "In the 'King Andrew I' political cartoon, how is Andrew Jackson portrayed and what is the main message?",
-    "answer": "He is shown as a king standing on torn laws and a shredded bank charter, suggesting he acted like a monarch who ignored the Constitution.",
-    "hint": "Think royal robes and trampled documents.",
-    "context": "The cartoon criticizes Jackson for using presidential power in a way that seemed to go beyond constitutional limits."
-  },
-  {
-    "id": "monroe_doctrine_purpose",
-    "section": "SSC3",
-    "topic": "Monroe Doctrine",
-    "question": "What was the main purpose of the Monroe Doctrine issued in 1823?",
-    "answer": "It warned European nations not to build new colonies or interfere in the Western Hemisphere.",
-    "hint": "It tried to keep Europe out of the Americas.",
-    "context": "In return, the United States promised not to interfere in existing European colonies or in European affairs."
+    id: "c4_firm_element_ce",
+    unit: "U4",
+    unitLabel: "Chapter 4: Overview of the Regulatory Framework",
+    section: "U4S2",
+    sectionLabel: "Business Conduct and Key Rules",
+    topic: "Continuing education – firm element",
+    sieLikely: false,
+    question:
+      "What is the firm element of continuing education and whom does it cover?",
+    answer:
+      "The firm element requires broker-dealers to establish an annual training plan for covered registered persons that addresses products, services, and risks offered by the firm, as well as regulatory developments relevant to their roles."
   }
 ];
 
-// State
-let state = {
-  mode: "home", // "flash" or "quiz"
-  filterType: "all",
+// Application state
+const state = {
+  filterType: "all",   // "all", "unit", "review", "sie"
   filterValue: "ALL",
   flashIndex: 0,
   showAnswer: false,
-  reviewSet: new Set(),
-  quizOrder: [],
-  quizIndex: 0,
-  quizScore: 0,
-  quizAnswered: false
+  reviewSet: new Set()
 };
 
 // Load review set from localStorage
 (function loadReviewSet() {
   try {
-    const raw = window.localStorage.getItem("eci_review_ids");
+    const raw = window.localStorage.getItem("sie_flash_review_ids");
     if (raw) {
       const arr = JSON.parse(raw);
       state.reviewSet = new Set(arr);
@@ -332,57 +524,61 @@ let state = {
 function saveReviewSet() {
   try {
     const arr = Array.from(state.reviewSet);
-    window.localStorage.setItem("eci_review_ids", JSON.stringify(arr));
+    window.localStorage.setItem("sie_flash_review_ids", JSON.stringify(arr));
   } catch (e) {
     // ignore
   }
 }
 
-// Helpers
+// Filtering helpers
 
 function getFilteredCards(filterType, filterValue) {
   if (filterType === "all") {
     return FLASHCARDS.slice();
   }
-  if (filterType === "section") {
-    return FLASHCARDS.filter(c => c.section === filterValue);
+  if (filterType === "unit") {
+    return FLASHCARDS.filter(c => c.unit === filterValue);
   }
   if (filterType === "review") {
     return FLASHCARDS.filter(c => state.reviewSet.has(c.id));
+  }
+  if (filterType === "sie") {
+    return FLASHCARDS.filter(c => c.sieLikely);
   }
   return FLASHCARDS.slice();
 }
 
 function getFilterLabel(prefix, filterType, filterValue) {
   if (filterType === "all") {
-    return prefix + "All topics";
+    return prefix + "All chapters";
   }
-  if (filterType === "section") {
-    if (filterValue === "SSC1") return prefix + "Study Check #1";
-    if (filterValue === "SSC2") return prefix + "Study Check #2";
-    if (filterValue === "SSC3") return prefix + "Study Check #3";
-    if (filterValue === "SSC4") return prefix + "Study Check #4";
-    return prefix + filterValue;
+  if (filterType === "sie") {
+    return prefix + "SIE exam-likely topics";
   }
   if (filterType === "review") {
     return prefix + "Marked for review";
   }
-  return prefix + "All topics";
+  if (filterType === "unit") {
+    if (filterValue === "U1") return prefix + "Chapter 1 – Knowledge of Capital Markets";
+    if (filterValue === "U2") return prefix + "Chapter 2 – Understanding Products and Risks";
+    if (filterValue === "U3") return prefix + "Chapter 3 – Trading and Customer Accounts";
+    if (filterValue === "U4") return prefix + "Chapter 4 – Regulatory Framework";
+    return prefix + filterValue;
+  }
+  return prefix + "All chapters";
 }
 
-// Navigation
+// View helpers
 
 function showView(viewId) {
   document.getElementById("homeView").classList.add("hidden");
   document.getElementById("flashcardsView").classList.add("hidden");
-  document.getElementById("quizView").classList.add("hidden");
   document.getElementById(viewId).classList.remove("hidden");
 }
 
 // Flashcards
 
 function startFlashcards(filterType, filterValue) {
-  state.mode = "flash";
   state.filterType = filterType;
   state.filterValue = filterValue;
   state.flashIndex = 0;
@@ -395,26 +591,30 @@ function startFlashcards(filterType, filterValue) {
 function renderFlashcard() {
   const cards = getFilteredCards(state.filterType, state.filterValue);
   const topicEl = document.getElementById("cardTopic");
+  const subtopicEl = document.getElementById("cardSubtopic");
   const qEl = document.getElementById("cardQuestion");
   const aEl = document.getElementById("cardAnswer");
-  const ctxEl = document.getElementById("cardContext");
-  const hintEl = document.getElementById("cardHint");
   const counterEl = document.getElementById("flashCounter");
   const filterLabelEl = document.getElementById("flashFilterLabel");
   const markBtn = document.getElementById("markReviewBtn");
+  const sieBadge = document.getElementById("sieBadge");
+  const reviewBadge = document.getElementById("reviewBadge");
+  const cardContainer = document.getElementById("flashcard");
 
   filterLabelEl.textContent = getFilterLabel("Deck: ", state.filterType, state.filterValue);
 
   if (cards.length === 0) {
     topicEl.textContent = "";
-    qEl.textContent = "No cards available for this selection yet.";
+    subtopicEl.textContent = "";
+    qEl.textContent = "No flashcards available for this selection yet.";
     aEl.textContent = "";
     aEl.classList.remove("visible");
-    ctxEl.textContent = "";
-    hintEl.textContent = "";
     counterEl.textContent = "";
     markBtn.disabled = true;
     markBtn.textContent = "Mark for review";
+    sieBadge.classList.add("hidden");
+    reviewBadge.classList.add("hidden");
+    cardContainer.classList.remove("sie-likely", "review-marked");
     return;
   }
 
@@ -423,11 +623,10 @@ function renderFlashcard() {
 
   const card = cards[state.flashIndex];
 
-  topicEl.textContent = card.topic;
+  topicEl.textContent = card.unitLabel;
+  subtopicEl.textContent = card.sectionLabel + " – " + card.topic;
   qEl.textContent = card.question;
   aEl.textContent = card.answer;
-  ctxEl.textContent = card.context || "";
-  hintEl.textContent = card.hint ? "Memory tip: " + card.hint : "";
 
   counterEl.textContent = "Card " + (state.flashIndex + 1) + " of " + cards.length;
 
@@ -437,12 +636,26 @@ function renderFlashcard() {
     aEl.classList.remove("visible");
   }
 
-  markBtn.disabled = false;
+  // Badges and card highlighting
+  if (card.sieLikely) {
+    sieBadge.classList.remove("hidden");
+    cardContainer.classList.add("sie-likely");
+  } else {
+    sieBadge.classList.add("hidden");
+    cardContainer.classList.remove("sie-likely");
+  }
+
   if (state.reviewSet.has(card.id)) {
+    reviewBadge.classList.remove("hidden");
+    cardContainer.classList.add("review-marked");
     markBtn.textContent = "Unmark review";
   } else {
+    reviewBadge.classList.add("hidden");
+    cardContainer.classList.remove("review-marked");
     markBtn.textContent = "Mark for review";
   }
+
+  markBtn.disabled = false;
 }
 
 function setupFlashcardHandlers() {
@@ -461,9 +674,11 @@ function setupFlashcardHandlers() {
     if (cards.length === 0) return;
     if (state.flashIndex < cards.length - 1) {
       state.flashIndex += 1;
-      state.showAnswer = false;
-      renderFlashcard();
+    } else {
+      state.flashIndex = 0; // wrap around
     }
+    state.showAnswer = false;
+    renderFlashcard();
   });
 
   document.getElementById("toggleAnswer").addEventListener("click", () => {
@@ -485,154 +700,19 @@ function setupFlashcardHandlers() {
   });
 
   document.getElementById("backFromFlash").addEventListener("click", () => {
-    state.mode = "home";
     showView("homeView");
   });
 }
 
-// Quiz
+// Menu handlers
 
-function shuffleArray(arr) {
-  const copy = arr.slice();
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    const tmp = copy[i];
-    copy[i] = copy[j];
-    copy[j] = tmp;
-  }
-  return copy;
-}
-
-function startQuiz(filterType, filterValue) {
-  state.mode = "quiz";
-  state.filterType = filterType;
-  state.filterValue = filterValue;
-
-  const cards = getFilteredCards(filterType, filterValue);
-  const indices = cards.map((_, idx) => idx);
-  state.quizOrder = shuffleArray(indices);
-  state.quizIndex = 0;
-  state.quizScore = 0;
-  state.quizAnswered = false;
-
-  showView("quizView");
-  renderQuizQuestion();
-}
-
-function renderQuizQuestion() {
-  const cards = getFilteredCards(state.filterType, state.filterValue);
-  const labelEl = document.getElementById("quizFilterLabel");
-  const progressEl = document.getElementById("quizProgress");
-  const qEl = document.getElementById("quizQuestion");
-  const ctxEl = document.getElementById("quizContext");
-  const optionsEl = document.getElementById("quizOptions");
-  const feedbackEl = document.getElementById("quizFeedback");
-  const scoreEl = document.getElementById("quizScore");
-
-  labelEl.textContent = getFilterLabel("Quiz: ", state.filterType, state.filterValue);
-
-  optionsEl.innerHTML = "";
-  feedbackEl.textContent = "";
-
-  if (cards.length === 0) {
-    qEl.textContent = "No questions available for this selection yet.";
-    ctxEl.textContent = "";
-    progressEl.textContent = "";
-    scoreEl.textContent = "";
-    return;
-  }
-
-  if (state.quizIndex >= state.quizOrder.length) {
-    state.quizIndex = 0;
-  }
-
-  const indexInCards = state.quizOrder[state.quizIndex];
-  const item = cards[indexInCards];
-
-  qEl.textContent = item.question;
-  ctxEl.textContent = item.context || "";
-  progressEl.textContent = "Question " + (state.quizIndex + 1) + " of " + state.quizOrder.length;
-  scoreEl.textContent = "Score: " + state.quizScore;
-
-  // Build multiple choice options
-  const wrongChoices = shuffleArray(
-    cards
-      .map(c => c.answer)
-      .filter(ans => ans !== item.answer)
-  ).slice(0, 3);
-
-  const allChoices = shuffleArray([item.answer, ...wrongChoices]);
-
-  state.quizAnswered = false;
-
-  allChoices.forEach(choiceText => {
-    const btn = document.createElement("button");
-    btn.textContent = choiceText;
-    btn.addEventListener("click", () => handleQuizChoice(btn, choiceText, item.answer));
-    optionsEl.appendChild(btn);
-  });
-}
-
-function handleQuizChoice(button, chosenText, correctAnswer) {
-  if (state.quizAnswered) return;
-
-  const optionsContainer = document.getElementById("quizOptions");
-  const buttons = optionsContainer.querySelectorAll("button");
-  buttons.forEach(btn => btn.disabled = true);
-
-  const feedbackEl = document.getElementById("quizFeedback");
-
-  if (chosenText === correctAnswer) {
-    button.classList.add("selected", "correct");
-    feedbackEl.textContent = "Nice work. That is correct.";
-    state.quizScore += 1;
-  } else {
-    button.classList.add("selected", "incorrect");
-    feedbackEl.textContent = "Not quite. Correct answer: " + correctAnswer;
-  }
-
-  state.quizAnswered = true;
-  document.getElementById("quizScore").textContent = "Score: " + state.quizScore;
-}
-
-function setupQuizHandlers() {
-  document.getElementById("nextQuestion").addEventListener("click", () => {
-    const cards = getFilteredCards(state.filterType, state.filterValue);
-    if (cards.length === 0) return;
-
-    state.quizIndex += 1;
-    if (state.quizIndex >= state.quizOrder.length) {
-      // Restart quiz
-      const indices = cards.map((_, idx) => idx);
-      state.quizOrder = shuffleArray(indices);
-      state.quizIndex = 0;
-      state.quizScore = 0;
-    }
-    state.quizAnswered = false;
-    renderQuizQuestion();
-  });
-
-  document.getElementById("backFromQuiz").addEventListener("click", () => {
-    state.mode = "home";
-    showView("homeView");
-  });
-}
-
-// Home menu handlers
-
-function setupHomeMenu() {
+function setupMenuHandlers() {
   const buttons = document.querySelectorAll(".menu-btn");
   buttons.forEach(btn => {
     btn.addEventListener("click", () => {
-      const mode = btn.getAttribute("data-mode");
-      const filterType = btn.getAttribute("data-filter-type");
-      const filterValue = btn.getAttribute("data-filter-value");
-
-      if (mode === "flash") {
-        startFlashcards(filterType, filterValue);
-      } else if (mode === "quiz") {
-        startQuiz(filterType, filterValue);
-      }
+      const filterType = btn.dataset.filterType;
+      const filterValue = btn.dataset.filterValue;
+      startFlashcards(filterType, filterValue);
     });
   });
 }
@@ -640,8 +720,7 @@ function setupHomeMenu() {
 // Initialize
 
 document.addEventListener("DOMContentLoaded", () => {
-  setupHomeMenu();
+  setupMenuHandlers();
   setupFlashcardHandlers();
-  setupQuizHandlers();
   showView("homeView");
 });
